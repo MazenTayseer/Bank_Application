@@ -31,7 +31,7 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </BorderPane.margin>
             <children>
-                <Button layoutX="496.0" layoutY="430.0" mnemonicParsing="false" onAction="#transfer" prefHeight="35.0" prefWidth="350.0" style="-fx-font-weight: bold; -fx-background-color: #d5f7e6;" text="Confirm">
+                <Button layoutX="511.0" layoutY="430.0" mnemonicParsing="false" onAction="#transfer" prefHeight="35.0" prefWidth="160.0" style="-fx-font-weight: bold; -fx-background-color: #d5f7e6;" text="Confirm">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -84,6 +84,14 @@
                   <Font size="24.0" />
                </font>
             </Label>
+            <Button layoutX="686.0" layoutY="430.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="160.0" style="-fx-font-weight: bold; -fx-background-color: #d5f7e6;" text="Back">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
             </children>
         </AnchorPane>
     </center>

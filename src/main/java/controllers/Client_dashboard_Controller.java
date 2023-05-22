@@ -24,4 +24,8 @@ public class Client_dashboard_Controller implements Initializable {
     public void transfer() throws IOException {
         new App().changeScene("client/transfer.fxml");
     }
+
+    public void bills() throws IOException {
+        new App().changeScene("client/bills/bills.fxml");
+    }
 }
