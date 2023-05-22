@@ -10,11 +10,11 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String showSending() {
-        return "An amount of " + this.amount + " was transferred to " + this.toClient.getUsername();
-    }
-
-    public String showReceiving() {
-        return "An amount of " + this.amount + " was transferred from " + this.fromClient.getUsername();
-    }
+//    public String transfer_showSending() {
+//        return "An amount of " + this.amount + " was transferred to " + this.toClient.getUsername();
+//    }
+//
+//    public String transfer_showReceiving() {
+//        return "An amount of " + this.amount + " was transferred from " + this.fromClient.getUsername();
+//    }
 }

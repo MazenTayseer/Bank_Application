@@ -29,6 +29,8 @@ public class Client {
             setBalance(this.balance -= amount);
             transferTo_Client.setBalance(transferTo_Client.balance += amount);
 
+            Transaction currentTransaction = new Transaction(this, transferTo_Client, amount);
+
             return getBalance();
         }
     }

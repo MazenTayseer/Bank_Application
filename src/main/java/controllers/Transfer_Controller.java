@@ -85,10 +85,6 @@ public class Transfer_Controller implements Initializable {
         Client transferTo_Client = findClient(clientsComboBox.getValue().toString());
         double selectedAmount = Double.parseDouble(amount.getText());
         if (currentClient.transfer(transferTo_Client, selectedAmount) > -1) {
-            Transaction newTransaction = new Transaction(currentClient, transferTo_Client, Double.parseDouble(amount.getText()));
-            currentClient.addToTransactions(newTransaction);
-            transferTo_Client.addToTransactions(newTransaction);
-
             availableBalance.setText("Available Balance: " + currentClient.getBalance());
             label_1.setText("Amount of");
             label_2.setText(amount.getText());
