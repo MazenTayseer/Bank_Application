@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClientBills_Controller">
+    <top>
+        <AnchorPane prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #d5f7e6;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="29.0" layoutY="12.0" prefHeight="35.0" prefWidth="802.0" style="-fx-text-fill: #222d30; -fx-font-weight: bold;" text="Pay Your Bills">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+        </AnchorPane>
+    </top>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #222d30;" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+            <children>
+                <Button layoutX="511.0" layoutY="430.0" mnemonicParsing="false" onAction="#payBill" prefHeight="35.0" prefWidth="160.0" style="-fx-font-weight: bold; -fx-background-color: #d5f7e6;" text="Confirm">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <ComboBox fx:id="billsComboBox" layoutX="30.0" layoutY="157.0" onAction="#showBillDetails" prefHeight="35.0" prefWidth="400.0" promptText="Bill" style="-fx-background-color: #d5f7e6;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ComboBox>
+                <Label layoutX="30.0" layoutY="121.0" prefHeight="35.0" prefWidth="400.0" style="-fx-text-fill: #d5f7e6; -fx-font-weight: bold;" text="Choose a bill:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="30.0" layoutY="240.0" prefHeight="35.0" prefWidth="400.0" style="-fx-text-fill: #d5f7e6; -fx-font-weight: bold;" text="Bill Amount">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="availableBalance" layoutX="30.0" layoutY="34.0" prefHeight="35.0" prefWidth="400.0" style="-fx-text-fill: #d5f7e6; -fx-font-weight: bold;" text="Current Bills">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <Button layoutX="686.0" layoutY="430.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="160.0" style="-fx-font-weight: bold; -fx-background-color: #d5f7e6;" text="Back">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            <Label fx:id="amount" layoutX="30.0" layoutY="275.0" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #d5f7e6; -fx-text-fill: #222d30; -fx-font-weight: bold;" text="-">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label layoutX="30.0" layoutY="359.0" prefHeight="35.0" prefWidth="400.0" style="-fx-text-fill: #d5f7e6; -fx-font-weight: bold;" text="Due Date">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="date" layoutX="30.0" layoutY="394.0" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #d5f7e6; -fx-text-fill: #222d30; -fx-font-weight: bold;" text="-">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="label_1" layoutX="496.0" layoutY="34.0" prefHeight="35.0" prefWidth="350.0" style="-fx-text-fill: #d5f7e6; -fx-font-weight: bold;">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

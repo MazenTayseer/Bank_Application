@@ -3,14 +3,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Bills_Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.old.CurrentBills_Controller">
     <top>
         <AnchorPane prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #d5f7e6;" BorderPane.alignment="CENTER">
             <children>
@@ -39,31 +39,6 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <ComboBox layoutX="30.0" layoutY="157.0" prefHeight="35.0" prefWidth="400.0" promptText="Client" style="-fx-background-color: #d5f7e6;">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </ComboBox>
-                <Label layoutX="30.0" layoutY="121.0" prefHeight="35.0" prefWidth="400.0" style="-fx-text-fill: #d5f7e6; -fx-font-weight: bold;" text="Choose a Bill to Pay:">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="30.0" layoutY="253.0" prefHeight="35.0" prefWidth="400.0" style="-fx-text-fill: #d5f7e6; -fx-font-weight: bold;" text="Enter Amount of Money:">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <TextField layoutX="30.0" layoutY="289.0" prefHeight="35.0" prefWidth="400.0" promptText="Amount" style="-fx-background-color: #d5f7e6;">
-                    <cursor>
-                        <Cursor fx:constant="TEXT" />
-                    </cursor>
-                </TextField>
-                <Label fx:id="availableBalance" layoutX="30.0" layoutY="34.0" prefHeight="35.0" prefWidth="400.0" style="-fx-text-fill: #d5f7e6; -fx-font-weight: bold;" text="Available Balance">
-                    <font>
-                        <Font size="24.0" />
-                    </font>
-                </Label>
                 <Button layoutX="686.0" layoutY="430.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="160.0" style="-fx-font-weight: bold; -fx-background-color: #d5f7e6;" text="Back">
                     <font>
                         <Font size="14.0" />
@@ -72,6 +47,13 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
+                <TableView fx:id="table" layoutX="15.0" layoutY="33.0" prefHeight="378.0" prefWidth="830.0">
+                    <columns>
+                        <TableColumn minWidth="-1.0" prefWidth="500.0" text="Name" />
+                        <TableColumn minWidth="25.0" prefWidth="170.0" text="Amount" />
+                        <TableColumn minWidth="25.0" prefWidth="170.0" text="Due Date" />
+                    </columns>
+                </TableView>
             </children>
         </AnchorPane>
     </center>

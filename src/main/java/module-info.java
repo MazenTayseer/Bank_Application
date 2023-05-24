@@ -15,4 +15,6 @@ module main.bankingsystem {
     exports main;
     exports controllers;
     opens controllers to javafx.fxml;
+    exports controllers.old;
+    opens controllers.old to javafx.fxml;
 }

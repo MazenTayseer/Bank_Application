@@ -2,12 +2,12 @@ package classes;
 
 import java.util.Date;
 
-public class Bills {
+public class Bill {
     private String name;
     private Date dueDate;
     private double amount;
 
-    public Bills(String name, Date dueDate, double amount) {
+    public Bill(String name, Date dueDate, double amount) {
         this.name = name;
         this.dueDate = dueDate;
         this.amount = amount;

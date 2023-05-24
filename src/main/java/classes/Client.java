@@ -6,7 +6,7 @@ public class Client {
     private String username;
     private String password;
     private double balance;
-//    private ArrayList<Transaction> transactions;
+    private ArrayList<Bill> bills = new ArrayList<>();
 
     public Client(String username, String password, double balance) {
         this.username = username;
@@ -33,6 +33,22 @@ public class Client {
         }
     }
 
+    public double payBill(Bill bill) {
+        if (this.balance < bill.getAmount()) {
+            return -1;
+        } else {
+            setBalance(this.balance -= bill.getAmount());
+            for (int i = 0; i < this.bills.size(); i++) {
+                if (this.bills.get(i).equals(bill)) {
+                    this.bills.remove(i);
+                    break;
+                }
+            }
+
+            return getBalance();
+        }
+    }
+
 
     public String getUsername() {
         return username;
@@ -51,11 +67,11 @@ public class Client {
         this.balance = balance;
     }
 
-//    public ArrayList<Transaction> getTransactions() {
-//        return transactions;
-//    }
-//
-//    public void addToTransactions(Transaction transaction) {
-//        transactions.add(transaction);
-//    }
+    public ArrayList<Bill> getBills() {
+        return bills;
+    }
+
+    public void addToBills(Bill bill) {
+        this.bills.add(bill);
+    }
 }

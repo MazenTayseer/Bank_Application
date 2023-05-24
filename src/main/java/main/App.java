@@ -1,6 +1,7 @@
 package main;
 
 import classes.Admin;
+import classes.Bill;
 import classes.Client;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class App extends Application {
@@ -35,7 +37,10 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        clientsList.add(new Client("Mazen", "1", 1000));
+        Client c1 = new Client("Mazen", "1", 1000);
+        c1.addToBills(new Bill("Water", new Date(2023, 5, 30), 250.50));
+
+        clientsList.add(c1);
         clientsList.add(new Client("Ahmed", "1", 1500));
 
         adminsList.add(new Admin("admin", "admin"));

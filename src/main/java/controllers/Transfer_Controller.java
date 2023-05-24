@@ -91,6 +91,9 @@ public class Transfer_Controller implements Initializable {
         double selectedAmount = Double.parseDouble(amount.getText());
         if (currentClient.transfer(transferTo_Client, selectedAmount) > -1) {
             availableBalance.setText("Available Balance: " + currentClient.getBalance());
+            label_1.setTextFill(Color.web(" #d5f7e6"));
+            label_2.setTextFill(Color.web(" #d5f7e6"));
+
             label_1.setText("Amount of");
             label_2.setText(amount.getText());
             label_3.setText("was sent successfully to");
@@ -99,7 +102,7 @@ public class Transfer_Controller implements Initializable {
             amount.clear();
         } else {
             label_1.setTextFill(Color.color(1, 0, 0));
-            label_1.setText("Invalid Amount");
+            label_1.setText("Insufficient Balance");
         }
     }
 
