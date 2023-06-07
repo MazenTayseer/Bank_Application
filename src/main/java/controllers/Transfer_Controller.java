@@ -1,6 +1,7 @@
 package controllers;
 
 import classes.Client;
+import classes.Transaction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -18,21 +19,31 @@ import static main.App.loggedIn_Client;
 
 public class Transfer_Controller implements Initializable {
     @FXML
-    private ComboBox clientsComboBox;
+    public ComboBox clientsComboBox;
     @FXML
-    private Label availableBalance, label_1, label_2, label_3, label_4;
+    public Label availableBalance, label_1, label_2, label_3, label_4;
     @FXML
-    private TextField amount;
+    public TextField amount;
+
+    @FXML
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         AddToDropDown();
+
 
         Client currentClient = null;
         for (Client client : clientsList) {
             if (client == loggedIn_Client) {
                 currentClient = client;
             }
+        }
+        if (currentClient == null) {
+            return;
+        }
+        if (availableBalance == null) {
+            return;
         }
         availableBalance.setText("Available Balance: " + currentClient.getBalance());
         label_1.setText("");
@@ -54,6 +65,9 @@ public class Transfer_Controller implements Initializable {
     public void AddToDropDown() {
         for (Client client : clientsList) {
             if (client != loggedIn_Client) {
+                if (clientsComboBox == null) {
+                    return;
+                }
                 clientsComboBox.getItems().add(client.getUsername());
             }
         }
@@ -91,13 +105,18 @@ public class Transfer_Controller implements Initializable {
         double selectedAmount = Double.parseDouble(amount.getText());
         if (currentClient.transfer(transferTo_Client, selectedAmount) > -1) {
             availableBalance.setText("Available Balance: " + currentClient.getBalance());
-            label_1.setTextFill(Color.web(" #d5f7e6"));
-            label_2.setTextFill(Color.web(" #d5f7e6"));
+            label_1.setTextFill(Color.web("#d5f7e6"));
+            label_2.setTextFill(Color.web("#d5f7e6"));
 
             label_1.setText("Amount of");
             label_2.setText(amount.getText());
-            label_3.setText("was sent successfully to");
+            label_3.setText("sent successfully to");
             label_4.setText(clientsComboBox.getValue().toString());
+
+
+            currentClient.AddTransaction(new Transaction("Transfered to " + transferTo_Client.getUsername(), selectedAmount * -1));
+            transferTo_Client.AddTransaction(new Transaction("Recieved From " + currentClient.getUsername(), selectedAmount));
+
 
             amount.clear();
         } else {

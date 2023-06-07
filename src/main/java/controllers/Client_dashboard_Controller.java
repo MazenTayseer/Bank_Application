@@ -16,6 +16,7 @@ public class Client_dashboard_Controller implements Initializable {
     @FXML
     private Label welcomeText;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         welcomeText.setText("Hello, " + loggedIn_Client.getUsername());
@@ -28,4 +29,14 @@ public class Client_dashboard_Controller implements Initializable {
     public void bills() throws IOException {
         new App().changeScene("client/client_bills.fxml");
     }
+
+    public void TRANSACTION() throws IOException {
+        new App().changeScene("client/AllTransactions.fxml");
+
+    }
+
+    public void Log_Out() throws IOException {
+        new App().changeScene("login.fxml");
+    }
+
 }

@@ -8,6 +8,8 @@ public class Client {
     private double balance;
     private ArrayList<Bill> bills = new ArrayList<>();
 
+    private ArrayList<Transaction> transactions = new ArrayList<>();
+
     public Client(String username, String password, double balance) {
         this.username = username;
         this.password = password;
@@ -49,6 +51,10 @@ public class Client {
         }
     }
 
+    public void AddTransaction(Transaction transaction) {
+        this.transactions.add(transaction);
+    }
+
 
     public String getUsername() {
         return username;
@@ -64,14 +70,24 @@ public class Client {
 
 
     public void setBalance(double balance) {
-        this.balance = balance;
+        if (balance < 0){
+            this.balance = 0;
+        }
+        else{
+            this.balance = balance;
+        }
     }
 
     public ArrayList<Bill> getBills() {
         return bills;
     }
 
+    public ArrayList<Transaction> getTransactions() {
+        return transactions;
+    }
+
     public void addToBills(Bill bill) {
         this.bills.add(bill);
+
     }
 }

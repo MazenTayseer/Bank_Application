@@ -3,6 +3,9 @@ module main.bankingsystem {
     requires javafx.fxml;
     requires javafx.web;
 
+    opens classes to javafx.fxml;
+    exports classes;
+
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires validatorfx;
@@ -15,6 +18,4 @@ module main.bankingsystem {
     exports main;
     exports controllers;
     opens controllers to javafx.fxml;
-    exports controllers.old;
-    opens controllers.old to javafx.fxml;
 }

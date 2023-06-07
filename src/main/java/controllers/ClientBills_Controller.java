@@ -2,6 +2,7 @@ package controllers;
 
 import classes.Bill;
 import classes.Client;
+import classes.Transaction;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -49,8 +50,10 @@ public class ClientBills_Controller implements Initializable {
 
     public void showBillDetails() {
         if (!billsComboBox.getSelectionModel().isEmpty()) {
-            Bill bill = findBill(billsComboBox.getValue().toString());
-
+            Bill bill = findBill(billsComboBox.getSelectionModel().getSelectedItem().toString());
+            if (bill == null) {
+                return;
+            }
             amount.setText(String.valueOf(bill.getAmount()));
             date.setText(String.valueOf(bill.getDueDate()));
         }
@@ -59,32 +62,39 @@ public class ClientBills_Controller implements Initializable {
 
     public void payBill() {
         resetLabels();
+        Client currentClient = loggedIn_Client;
+        double selectedAmount = Double.parseDouble(amount.getText());
 
         if (billsComboBox.getSelectionModel().isEmpty()) {
-            label_1.setTextFill(Color.color(1, 0, 0));
             label_1.setText("Choose a bill");
             return;
         }
 
         Bill bill = findBill(billsComboBox.getValue().toString());
+        if (bill == null) {
+            return;
+        }
+        if (billsComboBox == null) {
+            return;
+        }
         if (loggedIn_Client.payBill(bill) > -1) {
-            label_1.setTextFill(Color.web(" #d5f7e6"));
+            label_1.setTextFill(Color.web("#d5f7e6"));
             amount.setText("-");
             date.setText("-");
             billsComboBox.getItems().remove(billsComboBox.getValue());
+            label_1.setText("Payment Successful");
+
+            currentClient.AddTransaction(new Transaction("Bill Successfully payed ", selectedAmount * -1));
 
             AddToDropDown();
         } else {
-            label_1.setTextFill(Color.color(1, 0, 0));
+
             label_1.setText("Insufficient Balance");
         }
     }
 
     private void resetLabels() {
         label_1.setText("");
-//        label_2.setText("");
-//        label_3.setText("");
-//        label_4.setText("");
     }
 
 
