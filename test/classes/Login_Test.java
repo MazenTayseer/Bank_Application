@@ -1,27 +1,28 @@
 package classes;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class LoginTest {
+public class Login_Test {
     private Client testClient_1, testClient_2;
     private Admin testAdmin;
 
-    @BeforeEach
-    void setUp() {
+
+    @Before
+    public void setUp() throws Exception {
         System.out.println("Starting a Test Case");
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() throws Exception {
         System.out.println("Test Case Passed");
     }
 
     @Test
-    void login() {
+    public void login() {
         testClient_1 = new Client("Mazen", "CowMoon1$", 0);
         testClient_2 = new Client("kareem", "asdfgh", 0);
 
@@ -36,7 +37,7 @@ class LoginTest {
     }
 
     @Test
-    void getUsername() {
+    public void getUsername() {
         testClient_1 = new Client("Mazen", "12345", 0);
         assertEquals(testClient_1.getUsername(), "Mazen");
 
@@ -45,7 +46,7 @@ class LoginTest {
     }
 
     @Test
-    void getPassword() {
+    public void getPassword() {
         testClient_1 = new Client("Mazen", "12345", 0);
         assertEquals(testClient_1.getPassword(), "12345");
 

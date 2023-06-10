@@ -1,86 +1,86 @@
 package classes;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class ClientTest {
+
+public class Client_Test {
     private Client testClient_1, testClient_2;
     private Bill bill;
 
-
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() throws Exception {
         System.out.println("Starting a Test Case");
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() throws Exception {
         System.out.println("Test Case Passed");
     }
 
     @Test
-    void transfer() {
+    public void transfer() {
         testClient_1 = new Client("Mazen", "12345", 1000);
         testClient_2 = new Client("Kareem", "12345", 300);
 
-        assertEquals(949.50, testClient_1.transfer(testClient_2, 50.50));
-        assertEquals(-1, testClient_2.transfer(testClient_2, 500));
+        assertEquals(949.50, testClient_1.transfer(testClient_2, 50.50), 0.001);
+        assertEquals(-1, testClient_2.transfer(testClient_2, 500), 0.001);
 
         testClient_1 = new Client("Mazen", "12345", 0);
         testClient_2 = new Client("Kareem", "12345", 500);
-        assertEquals(-1, testClient_1.transfer(testClient_2, 50));
-        assertEquals(0, testClient_2.transfer(testClient_1, 500));
+        assertEquals(-1, testClient_1.transfer(testClient_2, 50), 0.001);
+        assertEquals(0, testClient_2.transfer(testClient_1, 500), 0.001);
     }
 
     @Test
-    void payBills() {
+    public void payBills() {
         testClient_1 = new Client("Mazen", "12345", 1000);
         bill = new Bill("Water", new Date(2023, 5, 30), 250.50);
         testClient_1.addToBills(bill);
 
-        assertEquals(749.50, testClient_1.payBill(bill));
+        assertEquals(749.50, testClient_1.payBill(bill), 0.001);
 
         testClient_1 = new Client("Mazen", "12345", 249);
         bill = new Bill("Water", new Date(2023, 5, 30), 250.50);
         testClient_1.addToBills(bill);
 
-        assertEquals(-1, testClient_1.payBill(bill));
+        assertEquals(-1, testClient_1.payBill(bill), 0.001);
     }
 
     @Test
-    void getUsername() {
+    public void getUsername() {
         testClient_1 = new Client("Mazen", "12345", 0);
         assertEquals("Mazen", testClient_1.getUsername());
     }
 
     @Test
-    void getPassword() {
+    public void getPassword() {
         testClient_1 = new Client("Mazen", "12345", 0);
         assertEquals("12345", testClient_1.getPassword());
     }
 
     @Test
-    void getBalance() {
+    public void getBalance() {
         testClient_1 = new Client("Mazen", "12345", 50.50);
-        assertEquals(50.50, testClient_1.getBalance());
+        assertEquals(50.50, testClient_1.getBalance(), 0.001);
 
         testClient_1 = new Client("Mazen", "12345", 50.50);
         testClient_1.setBalance(705.30);
-        assertEquals(705.30, testClient_1.getBalance());
+        assertEquals(705.30, testClient_1.getBalance(), 0.001);
 
         testClient_1 = new Client("Mazen", "12345", 50.50);
         testClient_1.setBalance(-50);
-        assertEquals(0, testClient_1.getBalance());
+        assertEquals(0, testClient_1.getBalance(), 0.001);
     }
 
     @Test
-    void getBills() {
+    public void getBills() {
         testClient_1 = new Client("Mazen", "12345", 50.50);
 
         Bill bill1 = new Bill("Water", new Date(2023, 5, 30), 250.50);
@@ -98,7 +98,7 @@ class ClientTest {
 
 
     @Test
-    void getTransactions() {
+    public void getTransactions() {
         testClient_1 = new Client("Mazen", "12345", 50.50);
 
         Transaction transaction1 = new Transaction("Bill", 250);
@@ -116,7 +116,7 @@ class ClientTest {
 
 
     @Test
-    void testUsername() {
+    public void testUsername() {
         testClient_1 = new Client("Maz", "12345", 50.50);
         assertFalse(testClient_1.isValidUsername(testClient_1.getUsername()));
 
@@ -128,7 +128,7 @@ class ClientTest {
     }
 
     @Test
-    void testPassword() {
+    public void testPassword() {
         testClient_1 = new Client("Mazen", "12345", 50.50);
         assertFalse(testClient_1.isPasswordValid(testClient_1.getPassword()));
 
@@ -151,6 +151,4 @@ class ClientTest {
         assertTrue(testClient_1.isPasswordValid(testClient_1.getPassword()));
 
     }
-
-
 }
