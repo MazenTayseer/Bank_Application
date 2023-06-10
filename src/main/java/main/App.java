@@ -37,14 +37,17 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        Client c1 = new Client("Mazen", "1", 1000);
-        Client c2 = new Client("1", "1", 1000);
+        Client c1 = new Client("Mazen", "CowMoon1$", 1000);
+        Client c2 = new Client("Ahmed", "CowMoon1$", 5000);
+
         c1.addToBills(new Bill("Water", new Date(2023, 5, 30), 250.50));
+        c1.addToBills(new Bill("Electricity", new Date(2023, 6, 10), 400));
+
+        c2.addToBills(new Bill("Water", new Date(2023, 5, 30), 250.50));
         c2.addToBills(new Bill("Electricity", new Date(2023, 6, 10), 400));
 
         clientsList.add(c1);
         clientsList.add(c2);
-        clientsList.add(new Client("Ahmed", "1", 1500));
 
         adminsList.add(new Admin("admin", "admin"));
 

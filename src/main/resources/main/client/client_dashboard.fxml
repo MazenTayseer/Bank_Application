@@ -22,9 +22,9 @@
                     </font>
                 </Label>
             </children>
-         <BorderPane.margin>
-            <Insets left="20.0" right="20.0" top="20.0" />
-         </BorderPane.margin>
+            <BorderPane.margin>
+                <Insets left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
         </AnchorPane>
     </top>
     <center>
@@ -46,12 +46,12 @@
                                     <font>
                                         <Font size="14.0" />
                                     </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </Button>
                             </children>
                         </VBox>
@@ -69,12 +69,12 @@
                                     <font>
                                         <Font size="14.0" />
                                     </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </Button>
                             </children>
                             <HBox.margin>
@@ -95,12 +95,12 @@
                                     <font>
                                         <Font size="14.0" />
                                     </font>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </Button>
                             </children>
                             <HBox.margin>
@@ -109,14 +109,14 @@
                         </VBox>
                     </children>
                 </HBox>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Log_Out" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #d5f7e6; -fx-text-fill: #222d30 #222d30; -fx-font-weight: bold;" text="Log out">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+                <Button layoutX="63.0" layoutY="65.0" mnemonicParsing="false" onAction="#Log_Out" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #d5f7e6; -fx-text-fill: #222d30 #222d30; -fx-font-weight: bold;" text="Log out">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
             </children>
             <BorderPane.margin>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

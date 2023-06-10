@@ -32,8 +32,8 @@ public class Client_dashboard_Controller implements Initializable {
 
     public void TRANSACTION() throws IOException {
         new App().changeScene("client/AllTransactions.fxml");
-
     }
+
 
     public void Log_Out() throws IOException {
         new App().changeScene("login.fxml");

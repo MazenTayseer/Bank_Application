@@ -21,7 +21,7 @@ public class ClientBills_Controller implements Initializable {
     @FXML
     private ComboBox billsComboBox;
     @FXML
-    private Label amount, date, label_1;
+    private Label amount, date, label_1, label_2;
 
 
     @Override
@@ -63,13 +63,24 @@ public class ClientBills_Controller implements Initializable {
     public void payBill() {
         resetLabels();
         Client currentClient = loggedIn_Client;
-        double selectedAmount = Double.parseDouble(amount.getText());
 
-        if (billsComboBox.getSelectionModel().isEmpty()) {
-            label_1.setText("Choose a bill");
+        if (billsComboBox.getSelectionModel().isEmpty() || amount.getText().trim().isEmpty() || amount.getText().equals("-")) {
+            label_1.setTextFill(Color.color(1, 0, 0));
+            label_2.setTextFill(Color.color(1, 0, 0));
+
+            if (billsComboBox.getSelectionModel().isEmpty() && (amount.getText().isEmpty() || amount.getText().equals("-"))) {
+                label_1.setText("Choose a bill");
+                label_2.setText("Enter an amount of money");
+            } else if (billsComboBox.getSelectionModel().isEmpty()) {
+                label_1.setText("Choose a bill");
+            } else if (amount.getText().isEmpty()) {
+                label_1.setText("Enter an amount of money");
+            }
             return;
         }
 
+
+        double selectedAmount = Double.parseDouble(amount.getText());
         Bill bill = findBill(billsComboBox.getValue().toString());
         if (bill == null) {
             return;
@@ -95,6 +106,7 @@ public class ClientBills_Controller implements Initializable {
 
     private void resetLabels() {
         label_1.setText("");
+        label_2.setText("");
     }
 
 

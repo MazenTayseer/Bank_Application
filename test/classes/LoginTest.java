@@ -22,10 +22,10 @@ class LoginTest {
 
     @Test
     void login() {
-        testClient_1 = new Client("Mazen", "12345", 0);
+        testClient_1 = new Client("Mazen", "CowMoon1$", 0);
         testClient_2 = new Client("kareem", "asdfgh", 0);
 
-        assertTrue(testClient_1.login("Mazen", "12345"));
+        assertTrue(testClient_1.login("Mazen", "CowMoon1$"));
 
         assertFalse(testClient_1.login("Mazen", "asdfgh"));
         assertFalse(testClient_2.login("Kareem", "12345"));

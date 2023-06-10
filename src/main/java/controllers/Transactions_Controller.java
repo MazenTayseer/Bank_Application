@@ -41,7 +41,7 @@ public class Transactions_Controller implements Initializable {
         amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
 
         idColumn.setPrefWidth(100);
-        descriptionColumn.setPrefWidth(504.8000736236572);
+        descriptionColumn.setPrefWidth(504);
         amountColumn.setPrefWidth(252.79998779296875);
 
         if (TransfersTable != null) {

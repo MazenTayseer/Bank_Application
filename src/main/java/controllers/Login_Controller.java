@@ -53,8 +53,7 @@ public class Login_Controller {
             }
         } else if (currentAdmin != null) {
             if (currentAdmin.login(username.getText(), password.getText())) {
-//                new Main().changeScene("");
-                System.out.println("Success");
+                new App().changeScene("client/admin.fxml");
                 return;
             }
         }

@@ -25,8 +25,6 @@ public class Transfer_Controller implements Initializable {
     @FXML
     public TextField amount;
 
-    @FXML
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -86,11 +84,11 @@ public class Transfer_Controller implements Initializable {
         Client currentClient = loggedIn_Client;
         resetLabels();
 
-        if (clientsComboBox.getSelectionModel().isEmpty() || amount.getText() == null) {
+        if (clientsComboBox.getSelectionModel().isEmpty() || amount.getText().trim().isEmpty()) {
             label_1.setTextFill(Color.color(1, 0, 0));
             label_2.setTextFill(Color.color(1, 0, 0));
 
-            if (clientsComboBox.getSelectionModel().isEmpty() && amount.getText().isEmpty()) {
+            if (clientsComboBox.getSelectionModel().isEmpty() && amount.getText().trim().isEmpty()) {
                 label_1.setText("Choose a client");
                 label_2.setText("Enter an amount of money");
             } else if (clientsComboBox.getSelectionModel().isEmpty()) {

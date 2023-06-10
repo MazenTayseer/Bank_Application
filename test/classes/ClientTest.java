@@ -114,4 +114,37 @@ class ClientTest {
         assertEquals(test_transactions, testClient_1.getTransactions());
     }
 
+
+    @Test
+    void testUsername() {
+        testClient_1 = new Client("Maz", "12345", 50.50);
+        assertFalse(testClient_1.isValidUsername(testClient_1.getUsername()));
+
+        testClient_1.setUsername("Mazen");
+        assertTrue(testClient_1.isValidUsername(testClient_1.getUsername()));
+
+        testClient_1.setUsername("Mohamed11");
+        assertTrue(testClient_1.isValidUsername(testClient_1.getUsername()));
+    }
+
+    @Test
+    void testPassword() {
+        testClient_1 = new Client("Mazen", "12345", 50.50);
+        assertFalse(testClient_1.isPasswordValid(testClient_1.getPassword()));
+
+        testClient_1.setPassword("CowMoonBus");
+        assertFalse(testClient_1.isPasswordValid(testClient_1.getPassword()));
+
+        testClient_1.setPassword("CowMoonBus14");
+        assertFalse(testClient_1.isPasswordValid(testClient_1.getPassword()));
+
+        testClient_1.setPassword("cowmoonbus12");
+        assertFalse(testClient_1.isPasswordValid(testClient_1.getPassword()));
+
+        testClient_1.setPassword("CowMoonBus14$");
+        assertTrue(testClient_1.isPasswordValid(testClient_1.getPassword()));
+
+    }
+
+
 }
