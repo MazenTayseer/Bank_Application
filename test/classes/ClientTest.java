@@ -141,6 +141,12 @@ class ClientTest {
         testClient_1.setPassword("cowmoonbus12");
         assertFalse(testClient_1.isPasswordValid(testClient_1.getPassword()));
 
+        testClient_1.setPassword("cowmoonbus12$");
+        assertFalse(testClient_1.isPasswordValid(testClient_1.getPassword()));
+
+        testClient_1.setPassword("COWMOONBUS12$");
+        assertFalse(testClient_1.isPasswordValid(testClient_1.getPassword()));
+
         testClient_1.setPassword("CowMoonBus14$");
         assertTrue(testClient_1.isPasswordValid(testClient_1.getPassword()));
 
