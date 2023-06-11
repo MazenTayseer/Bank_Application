@@ -102,8 +102,6 @@ public class ClientBills_Controller implements Initializable {
             label_1.setText("Payment Successful");
 
             currentClient.AddTransaction(new Transaction("Bill Successfully payed ", selectedAmount * -1));
-
-            AddToDropDown();
         } else {
             label_1.setText("Insufficient Balance");
         }
