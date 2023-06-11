@@ -52,7 +52,7 @@ public class Client {
             return false;
         }
 
-        if (!username.matches("^[a-zA-Z0-9]+$")) {
+        if (username.matches("^\\d.*$")) {
             return false;
         }
 

@@ -122,6 +122,12 @@ public class Client_Test {
         testClient_1 = new Client("Maz", "12345", 50.50);
         assertFalse(testClient_1.isValidUsername(testClient_1.getUsername()));
 
+        testClient_1.setUsername("4Mazen");
+        assertFalse(testClient_1.isValidUsername(testClient_1.getUsername()));
+
+        testClient_1.setUsername("321341");
+        assertFalse(testClient_1.isValidUsername(testClient_1.getUsername()));
+
         testClient_1.setUsername("Mazen");
         assertTrue(testClient_1.isValidUsername(testClient_1.getUsername()));
 

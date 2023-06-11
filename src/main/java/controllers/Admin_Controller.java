@@ -93,8 +93,9 @@ public class Admin_Controller implements Initializable {
                 label_4.setTextFill(Color.color(1, 0, 0));
 
                 label_1.setText("Username must have:");
-                label_2.setText("Letters and numbers");
+                label_2.setText("Letters");
                 label_3.setText("More than 4 letters");
+                label_4.setText("Cannot start with a number");
             }
         } else {
             label_1.setTextFill(Color.color(1, 0, 0));
