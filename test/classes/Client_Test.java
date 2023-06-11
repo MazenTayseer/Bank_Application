@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static main.App.clientsList;
 import static org.junit.Assert.*;
 
 
@@ -78,6 +79,7 @@ public class Client_Test {
         testClient_1.setBalance(-50);
         assertEquals(0, testClient_1.getBalance(), 0.001);
     }
+
 
     @Test
     public void getBills() {

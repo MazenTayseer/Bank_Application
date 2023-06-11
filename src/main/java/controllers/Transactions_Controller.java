@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import classes.Transaction;
+import main.ConsoleColors;
 
 import static main.App.loggedIn_Client;
 
@@ -24,12 +25,18 @@ public class Transactions_Controller implements Initializable {
     public TableView<Transaction> TransfersTable;
 
     @FXML
-    void BACK(ActionEvent event) throws IOException {
+    void BACK() throws IOException {
+        long startTime = System.currentTimeMillis();
         new App().changeScene("client/client_dashboard.fxml");
+        long finishTime = System.currentTimeMillis();
+        long timeTaken = finishTime - startTime;
+        System.out.println(ConsoleColors.ANSI_BLUE + "Back to dashboard time = " + timeTaken + " ms" + ConsoleColors.ANSI_RESET);
+        System.out.println();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        long startTime = System.currentTimeMillis();
         Client currentClient = loggedIn_Client;
         TableColumn<Transaction, Integer> idColumn = new TableColumn<>("ID");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -48,8 +55,12 @@ public class Transactions_Controller implements Initializable {
             TransfersTable.getColumns().clear();
             TransfersTable.getColumns().addAll(idColumn, descriptionColumn, amountColumn);
             TransfersTable.getItems().addAll(currentClient.getTransactions());
-
         }
+
+        long finishTime = System.currentTimeMillis();
+        long timeTaken = finishTime - startTime;
+        System.out.println(ConsoleColors.ANSI_BLUE + "Initializing Transactions Time = " + timeTaken + " ms" + ConsoleColors.ANSI_RESET);
+        System.out.println();
     }
 
 }

@@ -9,9 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import main.App;
+import main.ConsoleColors;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static main.App.clientsList;
@@ -57,7 +59,12 @@ public class Transfer_Controller implements Initializable {
     }
 
     public void back() throws IOException {
+        long startTime = System.currentTimeMillis();
         new App().changeScene("client/client_dashboard.fxml");
+        long finishTime = System.currentTimeMillis();
+        long timeTaken = finishTime - startTime;
+        System.out.println(ConsoleColors.ANSI_BLUE + "Back to dashboard time = " + timeTaken + " ms" + ConsoleColors.ANSI_RESET);
+        System.out.println();
     }
 
     public void AddToDropDown() {
@@ -66,6 +73,7 @@ public class Transfer_Controller implements Initializable {
                 if (clientsComboBox == null) {
                     return;
                 }
+
                 clientsComboBox.getItems().add(client.getUsername());
             }
         }
@@ -81,6 +89,8 @@ public class Transfer_Controller implements Initializable {
     }
 
     public void transfer() {
+        long startTime = System.currentTimeMillis();
+
         Client currentClient = loggedIn_Client;
         resetLabels();
 
@@ -105,6 +115,8 @@ public class Transfer_Controller implements Initializable {
             availableBalance.setText("Available Balance: " + currentClient.getBalance());
             label_1.setTextFill(Color.web("#d5f7e6"));
             label_2.setTextFill(Color.web("#d5f7e6"));
+            label_3.setTextFill(Color.web("#d5f7e6"));
+            label_4.setTextFill(Color.web("#d5f7e6"));
 
             label_1.setText("Amount of");
             label_2.setText(amount.getText());
@@ -121,6 +133,11 @@ public class Transfer_Controller implements Initializable {
             label_1.setTextFill(Color.color(1, 0, 0));
             label_1.setText("Insufficient Balance");
         }
+
+        long finishTime = System.currentTimeMillis();
+        long timeTaken = finishTime - startTime;
+        System.out.println(ConsoleColors.ANSI_BLUE + "Transfer Money Time = " + timeTaken + " ms" + ConsoleColors.ANSI_RESET);
+        System.out.println();
     }
 
     private void resetLabels() {

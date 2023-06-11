@@ -6,8 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import main.App;
+import main.ConsoleColors;
 
 import java.io.IOException;
+import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import static main.App.*;
 
@@ -42,6 +45,7 @@ public class Login_Controller {
     }
 
     public void login() throws IOException {
+        long startTime = System.currentTimeMillis();
         Client currentClient = findClient(username.getText());
         Admin currentAdmin = findAdmin(username.getText());
 
@@ -49,16 +53,18 @@ public class Login_Controller {
             if (currentClient.login(username.getText(), password.getText())) {
                 loggedIn_Client = currentClient;
                 new App().changeScene("client/client_dashboard.fxml");
-                return;
             }
         } else if (currentAdmin != null) {
             if (currentAdmin.login(username.getText(), password.getText())) {
                 new App().changeScene("client/admin.fxml");
-                return;
             }
         }
 
         error.setText("Wrong username or password");
+        long finishTime = System.currentTimeMillis();
+        long timeTaken = finishTime - startTime;
+        System.out.println(ConsoleColors.ANSI_BLUE + "Login Time = " + timeTaken + " ms" + ConsoleColors.ANSI_RESET);
+        System.out.println();
     }
 
 }

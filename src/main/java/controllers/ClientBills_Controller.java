@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import main.App;
+import main.ConsoleColors;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +31,12 @@ public class ClientBills_Controller implements Initializable {
     }
 
     public void back() throws IOException {
+        long startTime = System.currentTimeMillis();
         new App().changeScene("client/client_dashboard.fxml");
+        long finishTime = System.currentTimeMillis();
+        long timeTaken = finishTime - startTime;
+        System.out.println(ConsoleColors.ANSI_BLUE + "Back to dashboard time = " + timeTaken + " ms" + ConsoleColors.ANSI_RESET);
+        System.out.println();
     }
 
     public void AddToDropDown() {
@@ -61,6 +67,7 @@ public class ClientBills_Controller implements Initializable {
 
 
     public void payBill() {
+        long startTime = System.currentTimeMillis();
         resetLabels();
         Client currentClient = loggedIn_Client;
 
@@ -70,7 +77,6 @@ public class ClientBills_Controller implements Initializable {
 
             if (billsComboBox.getSelectionModel().isEmpty() && (amount.getText().isEmpty() || amount.getText().equals("-"))) {
                 label_1.setText("Choose a bill");
-                label_2.setText("Enter an amount of money");
             } else if (billsComboBox.getSelectionModel().isEmpty()) {
                 label_1.setText("Choose a bill");
             } else if (amount.getText().isEmpty()) {
@@ -99,9 +105,13 @@ public class ClientBills_Controller implements Initializable {
 
             AddToDropDown();
         } else {
-
             label_1.setText("Insufficient Balance");
         }
+
+        long finishTime = System.currentTimeMillis();
+        long timeTaken = finishTime - startTime;
+        System.out.println(ConsoleColors.ANSI_BLUE + "Pay a Bill Time = " + timeTaken + " ms" + ConsoleColors.ANSI_RESET);
+        System.out.println();
     }
 
     private void resetLabels() {

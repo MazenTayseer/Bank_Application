@@ -117,6 +117,11 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
+            <Label fx:id="currentBalance" layoutX="336.0" layoutY="57.0" prefHeight="35.0" prefWidth="460.0" style="-fx-text-fill: #d5f7e6; -fx-font-weight: bold;" text="Current Balance">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
             </children>
             <BorderPane.margin>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static main.App.clientsList;
+
 public class Client {
     private String username;
     private String password;
@@ -74,6 +76,10 @@ public class Client {
 
             return getBalance();
         }
+    }
+
+    public void delete_data() {
+        clientsList.remove(this);
     }
 
     public double payBill(Bill bill) {
